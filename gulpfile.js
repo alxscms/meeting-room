@@ -13,7 +13,7 @@ const $ = gulpLoadPlugins();
 
 const SRC_DIR = 'src'; // do not start with './' otherwise file creation/deletion is not detected by gulp.watch (see https://github.com/sindresorhus/gulp-ruby-sass/issues/11)
 const DST_DIR = 'dist';
-const TMPL_DIR = './';
+const TMPL_DIR = '';
 
 gulp.task('styles', () => {
   return gulp.src(`${SRC_DIR}/styles/*.scss`)

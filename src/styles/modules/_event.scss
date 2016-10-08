@@ -1,0 +1,83 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100vw;
+  padding: 0 64px;
+  background-color: $black;
+
+  .event-time,
+  .event-name,
+  .event-progress {
+    position: relative;
+    z-index: 2;
+  }
+
+  .event-time {
+    opacity: 0;
+
+    .event-time-to {
+      opacity: 0.4;
+
+      &:before {
+        content: "-";
+        margin: 0 4px;
+      }
+    }
+  }
+
+  .event-name {
+    font-size: 64px;
+    font-weight: bold;
+  }
+
+  .event-progress {
+    @include absolute(top 28px bottom 28px left 28px);
+    width: 8px;
+    border-radius: 4px;
+    background-color: transparentize($white, 0.5);
+
+    &:after {
+      content: "";
+      @include absolute(top 0 right 0 bottom 0);
+      border-radius: 4px;
+      background-color: $white;
+      width: 8px;
+      height: 75%;
+    }
+  }
+
+  &:before {
+    content: "";
+    @include stretch();
+    background-color: $red;
+    z-index: 1;
+  }
+
+  &.event-free:before {
+    background-color: $green;
+  }
+
+  &.event-next {
+    height: calc((100vh - 100vw) / 2);
+    border-top: 1px solid white;
+
+    .event-time {
+      opacity: 1;
+    }
+
+    .event-name {
+      font-size: 36px;
+    }
+
+    .event-progress {
+      opacity: 0;
+    }
+
+    &:before {
+      right: auto;
+      width: 32px;
+    }
+  }
+}
