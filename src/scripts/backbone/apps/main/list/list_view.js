@@ -1,4 +1,5 @@
 import View from "../../../lib/views/view";
+import CollectionView from "../../../lib/views/collection_view";
 
 export const LayoutView = View.extend({
 
@@ -31,9 +32,23 @@ export const NowView = View.extend({
 
 });
 
+export const NoEventView = View.extend({
+
+  template: require("./templates/no_event.hbs")
+
+});
+
 export const EventView = View.extend({
 
-  className: "event",
+  className: "event event-next",
   template: require("./templates/event.hbs")
+
+});
+
+export const EventCollectionView = CollectionView.extend({
+
+  className: "events",
+  childView: EventView,
+  emptyView: NoEventView
 
 });

@@ -14,7 +14,11 @@ if (window.__agent) {
 }
 //endregion
 
-require("./backbone/apps/main/main_app.js");
+// handlebar helpers
+require("./handlebars/helpers/sentence_case");
+
+// apps
+require("./backbone/apps/main/main_app");
 
 window.onload = function () {
   app.start();
