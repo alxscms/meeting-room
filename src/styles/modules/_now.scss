@@ -1,6 +1,11 @@
+$width: 190px;
+$height: 76px;
+
 .now {
-  @include absolute(top 194px left 64px);
-  width: 190px;
-  height: 76px;
+  position: absolute;
+  left: 64px;
+  top: calc((100vh - #{$event-next-height} * 2) / (100 / 45) - #{$height});
+  width: $width;
+  height: $height;
   z-index: 3;
 }

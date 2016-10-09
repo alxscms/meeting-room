@@ -1,11 +1,17 @@
+$transition-duration: 500ms;
+
 .event {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: 100vw;
+  height: calc(100vh - #{$event-next-height} * 2);
   padding: 0 64px;
-  background-color: $black;
+  background-color: $red;
+
+  transition-property: margin-top, height, background-color;
+  transition-duration: $transition-duration;
+  transition-timing-function: ease;
 
   .event-time,
   .event-name,
@@ -15,7 +21,13 @@
   }
 
   .event-time {
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 45%;
     opacity: 0;
+    transition-property: opacity;
+    transition-duration: $transition-duration;
+    transition-timing-function: ease;
 
     .event-time-to {
       opacity: 0.4;
@@ -28,8 +40,12 @@
   }
 
   .event-name {
+    flex-basis: 55%;
     font-size: 64px;
     font-weight: bold;
+    transition-property: opacity, font-size;
+    transition-duration: $transition-duration;
+    transition-timing-function: ease;
   }
 
   .event-progress {
@@ -50,18 +66,31 @@
 
   &:before {
     content: "";
-    @include stretch();
+    @include absolute(top 0 bottom 0 left 0);
     background-color: $red;
-    z-index: 1;
+    width: 32px;
   }
 
-  &.event-free:before {
+  &.event-free {
     background-color: $green;
+
+    &:before {
+      background-color: $green;
+    }
+  }
+
+  &.event-past {
+    margin-top: -100vw;
+
+    .event-name {
+      opacity: 0;
+    }
   }
 
   &.event-next {
-    height: calc((100vh - 100vw) / 2);
+    height: $event-next-height;
     border-top: 1px solid white;
+    background-color: $black;
 
     .event-time {
       opacity: 1;
@@ -73,11 +102,6 @@
 
     .event-progress {
       opacity: 0;
-    }
-
-    &:before {
-      right: auto;
-      width: 32px;
     }
   }
 }
