@@ -6,6 +6,7 @@ export const LayoutView = View.extend({
 
   regions: {
     timeRegion: ".time-region",
+    nowRegion: ".now-region",
     eventsRegion: ".events-region"
   }
 
@@ -20,6 +21,13 @@ export const TimeView = View.extend({
     const time = "16:54";
     return {time};
   }
+
+});
+
+export const NowView = View.extend({
+
+  className: "time",
+  template: require("./templates/now.hbs")
 
 });
 
