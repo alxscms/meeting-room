@@ -8,4 +8,24 @@ $height: 76px;
   width: $width;
   height: $height;
   z-index: 3;
+
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    1% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    51% {
+      opacity: 1;
+    }
 }
