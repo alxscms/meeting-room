@@ -1,6 +1,7 @@
 import Backbone from "backbone";
 import CalendarHelper from "../../entities/helpers/calendar";
 import {CALENDAR_ID} from "../../../config/google/calendar";
+import moment from "moment";
 
 export default Backbone.Collection.extend({
 
@@ -8,10 +9,10 @@ export default Backbone.Collection.extend({
     CalendarHelper.checkAuth(() => {
       var request = gapi.client.calendar.events.list({
         "calendarId": CALENDAR_ID || "primary",
-        "timeMin": (new Date()).toISOString(),
+        "timeMin": moment().hours(0).minutes(0).format(),
+        "timeMax": moment().hours(23).minutes(59).format(),
         "showDeleted": false,
         "singleEvents": true,
-        "maxResults": 10,
         "orderBy": "startTime"
       });
 
