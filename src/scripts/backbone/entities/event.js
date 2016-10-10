@@ -16,10 +16,16 @@ export const Event = Model.extend({
   },
 
   getProgress() {
-    const start = moment(this.get("start").dateTime).unix();
-    const end = moment(this.get("end").dateTime).unix();
-    const now = moment().unix();
-    return (now - start) / (end - start);
+    if(this.isHappeningNow()) {
+      const start = moment(this.get("start").dateTime).unix();
+      const end = moment(this.get("end").dateTime).unix();
+      const now = moment().unix();
+      return (now - start) / (end - start);
+    } else if(this.isPast()) {
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
 });
@@ -36,7 +42,7 @@ export const EventCollection = Collection.extend({
       const event = response[i];
       if(i == 0) {
         if(moment().isBefore(event.start.dateTime)) {
-          events.push(this.createFreeEvent(moment().hours(0).format(), event.start.dateTime));
+          events.push(this.createFreeEvent(moment().format(), event.start.dateTime));
         }
       } else {
         const previousEvent = response[i - 1];
