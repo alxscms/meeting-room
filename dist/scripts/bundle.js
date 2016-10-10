@@ -29792,7 +29792,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<img class=\"now\" src=\"images/now.svg\" alt=\"NOW\">";
+    return "<img class=\"now\" src=\"dist/images/now.svg\" alt=\"NOW\">";
 },"useData":true});
 
 },{"hbsfy/runtime":319}],332:[function(require,module,exports){
