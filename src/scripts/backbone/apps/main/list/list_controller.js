@@ -14,6 +14,8 @@ export default Marionette.Object.extend({
     this.timeRegion();
     this.nowRegion();
     this.eventsRegion(eventCollection);
+
+    this.startUpdater();
   },
 
   timeRegion() {
@@ -29,6 +31,17 @@ export default Marionette.Object.extend({
   eventsRegion(collection) {
     this.eventCollectionView = new EventCollectionView({collection});
     this.layout.showChildView("eventsRegion", this.eventCollectionView);
+  },
+
+  startUpdater() {
+    setInterval(() => {
+      this.updateViews()
+    }, 1000 * 10);
+  },
+
+  updateViews() {
+    this.timeView.update();
+    this.eventCollectionView.update();
   }
 
 });

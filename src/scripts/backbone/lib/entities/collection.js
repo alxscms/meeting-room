@@ -24,8 +24,8 @@ export default Backbone.Collection.extend({
     });
   },
 
-  parse(resp, options) {
-    return resp.items;
+  parse(response) {
+    return response.items;
   }
 
 });
