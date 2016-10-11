@@ -53,6 +53,9 @@ export const EventCollection = Collection.extend({
       events.push(event);
     }
 
+    const lastEvent = response[response.length - 1];
+    events.push(this.createFreeEvent(lastEvent.end.dateTime, moment().hours(23).minutes(59).format()));
+
     return events;
   },
 

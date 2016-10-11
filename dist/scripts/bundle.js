@@ -29913,6 +29913,9 @@ var EventCollection = exports.EventCollection = _collection2.default.extend({
       events.push(event);
     }
 
+    var lastEvent = response[response.length - 1];
+    events.push(this.createFreeEvent(lastEvent.end.dateTime, (0, _moment2.default)().hours(23).minutes(59).format()));
+
     return events;
   },
   createFreeEvent: function createFreeEvent(start, end) {
