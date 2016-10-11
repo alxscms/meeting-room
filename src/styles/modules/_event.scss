@@ -5,7 +5,7 @@ $transition-duration: 500ms;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: calc(100vh - #{$event-next-height} * 2);
+  height: calc(100vh - #{$event-next-height} * 2 - 48px);
   padding: 0 64px;
   background-color: $red;
 
@@ -79,7 +79,7 @@ $transition-duration: 500ms;
   }
 
   &.event-past {
-    margin-top: calc(#{$event-next-height} * 2 - 100vh);
+    margin-top: calc(#{$event-next-height} * 2 - 100vh + 48px);
 
     .event-name {
       opacity: 0;
