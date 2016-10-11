@@ -41,7 +41,7 @@ $transition-duration: 500ms;
 
   .event-name {
     flex-basis: 55%;
-    font-size: 64px;
+    font-size: 3rem;
     font-weight: bold;
     transition-property: opacity, font-size;
     transition-duration: $transition-duration;
@@ -79,7 +79,7 @@ $transition-duration: 500ms;
   }
 
   &.event-past {
-    margin-top: -100vw;
+    margin-top: calc(#{$event-next-height} * 2 - 100vh);
 
     .event-name {
       opacity: 0;
@@ -96,7 +96,7 @@ $transition-duration: 500ms;
     }
 
     .event-name {
-      font-size: 36px;
+      font-size: 1.5rem;
     }
 
     .event-progress {
