@@ -15,7 +15,7 @@ export default Marionette.Object.extend({
     this.nowRegion();
     this.eventsRegion(eventCollection);
 
-    // this.startUpdater();
+    this.startUpdater();
   },
 
   timeRegion() {

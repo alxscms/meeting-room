@@ -29593,7 +29593,7 @@ exports.default = _backbone2.default.Object.extend({
     this.nowRegion();
     this.eventsRegion(eventCollection);
 
-    // this.startUpdater();
+    this.startUpdater();
   },
   timeRegion: function timeRegion() {
     this.timeView = new _list_view.TimeView();
